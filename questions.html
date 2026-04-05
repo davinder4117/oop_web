@@ -1,0 +1,4735 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C++ Learning Hub</title>
+</head>
+<body>
+
+<h1>C++ Learning Hub</h1>
+<p>Click on any topic to view questions and answers</p>
+<a href="home.html"> back to home</a>
+<hr>
+
+<details>
+<summary><b>1. Single Dimensional Arrays</b></summary>
+
+<p>1. Copy array</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, b[5];
+    for(int i=0;i&lt;5;i++) b[i]=a[i];
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;b[i]<<" ";
+}
+</pre>
+
+<p>2. Frequency of elements</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,2,3,1};
+    for(int i=0;i&lt;5;i++){
+        int count=0;
+        for(int j=0;j&lt;5;j++)
+            if(a[i]==a[j]) count++;
+        cout&lt;&lt;a[i]<<":"<<count<<endl;
+    }
+}
+</pre>
+
+<p>3. Left rotate</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, temp=a[0];
+    for(int i=0;i&lt;4;i++) a[i]=a[i+1];
+    a[4]=temp;
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>4. Duplicate elements</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,2,3,1};
+    for(int i=0;i&lt;5;i++)
+        for(int j=i+1;j&lt;5;j++)
+            if(a[i]==a[j]) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>5. Print array</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>6. Reverse array</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=4;i&gt;=0;i--) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>7. Even position</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=0;i&lt;5;i+=2) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>8. Odd position</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=1;i&lt;5;i+=2) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>9. Largest element</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,5,3,4,2}, max=a[0];
+    for(int i=1;i&lt;5;i++) if(a[i]&gt;max) max=a[i];
+    cout&lt;&lt;max;
+}
+</pre>
+
+<p>10. Smallest element</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,5,3,4,2}, min=a[0];
+    for(int i=1;i&lt;5;i++) if(a[i]&lt;min) min=a[i];
+    cout&lt;&lt;min;
+}
+</pre>
+
+<p>11. Number of elements</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5];
+    cout&lt;&lt;5;
+}
+</pre>
+
+<p>12. Sum of array</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, sum=0;
+    for(int i=0;i&lt;5;i++) sum+=a[i];
+    cout&lt;&lt;sum;
+}
+</pre>
+
+<p>13. Right rotate</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, temp=a[4];
+    for(int i=4;i&gt;0;i--) a[i]=a[i-1];
+    a[0]=temp;
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>14. Sort ascending</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={5,4,3,2,1};
+    for(int i=0;i&lt;5;i++)
+        for(int j=i+1;j&lt;5;j++)
+            if(a[i]&gt;a[j]) swap(a[i],a[j]);
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>15. Sort descending</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=0;i&lt;5;i++)
+        for(int j=i+1;j&lt;5;j++)
+            if(a[i]&lt;a[j]) swap(a[i],a[j]);
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>16–18. Largest, 2nd, 3rd largest</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main(){
+    int a[5]={5,2,9,1,7};
+    sort(a,a+5);
+    cout&lt;&lt;a[4]<<" "<<a[3]<<" "<<a[2];
+}
+</pre>
+
+<p>19–20. Smallest & 2nd smallest</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main(){
+    int a[5]={5,2,9,1,7};
+    sort(a,a+5);
+    cout&lt;&lt;a[0]<<" "<<a[1];
+}
+</pre>
+<p>21. Remove duplicates</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,2,3,1};
+    set&lt;int&gt; s(a,a+5);
+    for(int x:s) cout&lt;&lt;x<<" ";
+}
+</pre>
+
+<p>22. Odd and even</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=0;i&lt;5;i++)
+        if(a[i]%2==0) cout&lt;&lt;"Even "<<a[i]<<endl;
+        else cout&lt;&lt;"Odd "<<a[i]<<endl;
+}
+</pre>
+
+<p>23. Swap first and last</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    swap(a[0],a[4]);
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>24. Count even & odd</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, e=0,o=0;
+    for(int i=0;i&lt;5;i++)
+        if(a[i]%2==0) e++; else o++;
+    cout&lt;&lt;e<<" "<<o;
+}
+</pre>
+
+<p>25–27. Sum, index, average</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, sum=0;
+    for(int i=0;i&lt;5;i++) sum+=a[i];
+    cout&lt;&lt;"Sum="<<sum<<endl;
+    cout&lt;&lt;"Index of 3="<<2<<endl;
+    cout&lt;&lt;"Avg="<<(float)sum/5;
+}
+</pre>
+
+<p>28. Check value exists</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, key=3;
+    for(int i=0;i&lt;5;i++)
+        if(a[i]==key) cout&lt;&lt;"Found";
+}
+</pre>
+
+<p>29. Max & Min</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,5,3,4,2};
+    int max=a[0],min=a[0];
+    for(int i=1;i&lt;5;i++){
+        if(a[i]&gt;max) max=a[i];
+        if(a[i]&lt;min) min=a[i];
+    }
+    cout&lt;&lt;max<<" "<<min;
+}
+</pre>
+
+<p>30. Insert element</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[6]={1,2,3,4,5}, pos=2,val=10;
+    for(int i=5;i&gt;pos;i--) a[i]=a[i-1];
+    a[pos]=val;
+    for(int i=0;i&lt;6;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>31. Reverse array</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5};
+    for(int i=4;i&gt;=0;i--) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>32. Common elements</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[3]={1,2,3}, b[3]={2,3,4};
+    for(int i=0;i&lt;3;i++)
+        for(int j=0;j&lt;3;j++)
+            if(a[i]==b[j]) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>33. Duplicate values</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,2,3,1};
+    for(int i=0;i&lt;5;i++)
+        for(int j=i+1;j&lt;5;j++)
+            if(a[i]==a[j]) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>34–35. 2nd largest & 2nd smallest</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main(){
+    int a[5]={5,2,9,1,7};
+    sort(a,a+5);
+    cout&lt;&lt;a[3]<<" "<<a[1];
+}
+</pre>
+
+<p>36. Count even & odd</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, e=0,o=0;
+    for(int i=0;i&lt;5;i++)
+        if(a[i]%2==0) e++; else o++;
+    cout&lt;&lt;e<<" "<<o;
+}
+</pre>
+
+<p>37. Difference max-min</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,5,3,4,2};
+    int max=a[0],min=a[0];
+    for(int i=1;i&lt;5;i++){
+        if(a[i]&gt;max) max=a[i];
+        if(a[i]&lt;min) min=a[i];
+    }
+    cout&lt;&lt;max-min;
+}
+</pre>
+
+<p>38. Segregate 0s and 1s</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[6]={0,1,0,1,1,0}, c0=0;
+    for(int i=0;i&lt;6;i++) if(a[i]==0) c0++;
+    for(int i=0;i&lt;c0;i++) cout&lt;&lt;0<<" ";
+    for(int i=c0;i&lt;6;i++) cout&lt;&lt;1<<" ";
+}
+</pre>
+
+<p>39. Rotate clockwise</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, temp=a[4];
+    for(int i=4;i&gt;0;i--) a[i]=a[i-1];
+    a[0]=temp;
+    for(int i=0;i&lt;5;i++) cout&lt;&lt;a[i]<<" ";
+}
+</pre>
+
+<p>40. Unique elements</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,2,3,1};
+    set&lt;int&gt; s(a,a+5);
+    for(int x:s) cout&lt;&lt;x<<" ";
+}
+</pre>
+
+
+<p>41. Search key</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a[5]={1,2,3,4,5}, key=3;
+    for(int i=0;i&lt;5;i++)
+        if(a[i]==key) cout&lt;&lt;"Found at "<<i;
+}
+</pre>
+</details>
+
+<hr>
+
+<details>
+<summary><b>2. File Handling</b></summary>
+
+<p>1. Create file and write text</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ofstream file("test.txt");
+    file &lt;&lt; "Hello World";
+    file.close();
+}
+</pre>
+
+<p>2. Read and display file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream file("test.txt");
+    string line;
+    while(getline(file,line))
+        cout &lt;&lt; line &lt;&lt; endl;
+    file.close();
+}
+</pre>
+
+<p>3. Count lines</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream file("test.txt");
+    string line; int count=0;
+    while(getline(file,line)) count++;
+    cout &lt;&lt; count;
+}
+</pre>
+
+<p>4. Count words</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream file("test.txt");
+    string word; int count=0;
+    while(file >> word) count++;
+    cout &lt;&lt; count;
+}
+</pre>
+
+<p>5. Copy file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream in("a.txt");
+    ofstream out("b.txt");
+    string line;
+    while(getline(in,line))
+        out &lt;&lt; line &lt;&lt; endl;
+}
+</pre>
+
+<p>6. Find and replace word</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream in("a.txt");
+    ofstream out("b.txt");
+    string word;
+    while(in >> word){
+        if(word=="old") word="new";
+        out &lt;&lt; word &lt;&lt; " ";
+    }
+}
+</pre>
+
+<p>7. Append to file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ofstream file("test.txt", ios::app);
+    file &lt;&lt; "Appended Text";
+}
+</pre>
+
+<p>8. Sort lines</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main(){
+    ifstream file("test.txt");
+    vector&lt;string&gt; v;
+    string line;
+    while(getline(file,line)) v.push_back(line);
+    sort(v.begin(),v.end());
+    for(auto x:v) cout &lt;&lt; x &lt;&lt; endl;
+}
+</pre>
+
+<p>9. Merge files</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream f1("a.txt"), f2("b.txt");
+    ofstream out("c.txt");
+    string line;
+    while(getline(f1,line)) out &lt;&lt; line &lt;&lt; endl;
+    while(getline(f2,line)) out &lt;&lt; line &lt;&lt; endl;
+}
+</pre>
+
+<p>10. Split file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream in("a.txt");
+    ofstream f1("part1.txt"), f2("part2.txt");
+    string line; int count=0;
+    while(getline(in,line)){
+        if(count%2==0) f1&lt;&lt;line&lt;&lt;endl;
+        else f2&lt;&lt;line&lt;&lt;endl;
+        count++;
+    }
+}
+</pre>
+
+<p>11. Search string and show line numbers</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream file("test.txt");
+    string line, key="hello";
+    int ln=1;
+    while(getline(file,line)){
+        if(line.find(key)!=string::npos)
+            cout &lt;&lt; ln &lt;&lt; endl;
+        ln++;
+    }
+}
+</pre>
+
+<p>12. Encrypt file (simple)</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream in("a.txt");
+    ofstream out("b.txt");
+    char c;
+    while(in.get(c))
+        out.put(c+1);
+}
+</pre>
+
+<p>13. Decrypt file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream in("b.txt");
+    ofstream out("c.txt");
+    char c;
+    while(in.get(c))
+        out.put(c-1);
+}
+</pre>
+
+<p>14. Read CSV file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream file("data.csv");
+    string line;
+    while(getline(file,line)){
+        for(char c:line){
+            if(c==',') cout &lt;&lt; "\t";
+            else cout &lt;&lt; c;
+        }
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>15. Average of numbers in file</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main(){
+    ifstream file("num.txt");
+    int x,sum=0,count=0;
+    while(file>>x){sum+=x;count++;}
+    cout &lt;&lt; (float)sum/count;
+}
+</pre>
+
+<p>16. Student binary file menu</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+class Student{
+public:
+    int roll; char name[20]; int marks;
+};
+
+int main(){
+    Student s;
+    ofstream out("data.dat", ios::binary);
+    for(int i=0;i&lt;2;i++){
+        cin>>s.roll>>s.name>>s.marks;
+        out.write((char*)&s,sizeof(s));
+    }
+    out.close();
+
+    ifstream in("data.dat", ios::binary);
+    while(in.read((char*)&s,sizeof(s))){
+        cout&lt;&lt;s.roll&lt;&lt;" "&lt;&lt;s.name&lt;&lt;" "&lt;&lt;s.marks&lt;&lt;endl;
+    }
+}
+</pre>
+</details>
+
+<hr>
+
+<details>
+<summary><b>3. Strings</b></summary>
+
+<p>1. Check Anagram</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main(){
+    string a="listen", b="silent";
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    cout &lt;&lt; (a==b);
+}
+</pre>
+
+<p>2. Swap characters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="abcd";
+    swap(s[0],s[3]);
+    cout&lt;&lt;s;
+}
+</pre>
+
+<p>3. Only digits</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="1234";
+    bool flag=true;
+    for(char c:s) if(!isdigit(c)) flag=false;
+    cout&lt;&lt;flag;
+}
+</pre>
+
+<p>4. Deep copy</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string a="hello";
+    string b=a;
+    cout&lt;&lt;b;
+}
+</pre>
+
+<p>5. Remove character</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello";
+    char ch='l';
+    string r="";
+    for(char c:s) if(c!=ch) r+=c;
+    cout&lt;&lt;r;
+}
+</pre>
+
+<p>6. Add characters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hi";
+    s.push_back('!');
+    cout&lt;&lt;s;
+}
+</pre>
+
+<p>7. Palindrome</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="madam", r=s;
+    reverse(r.begin(),r.end());
+    cout&lt;&lt;(s==r);
+}
+</pre>
+
+<p>8. Enum to string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+enum Day{MON,TUE};
+int main(){
+    cout&lt;&lt;"MON";
+}
+</pre>
+
+<p>9. Count words</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello world";
+    int count=1;
+    for(char c:s) if(c==' ') count++;
+    cout&lt;&lt;count;
+}
+</pre>
+
+<p>10. Count characters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello";
+    cout&lt;&lt;s.length();
+}
+</pre>
+
+<p>11. Count punctuation</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hi!";
+    int count=0;
+    for(char c:s) if(ispunct(c)) count++;
+    cout&lt;&lt;count;
+}
+</pre>
+
+<p>12. Vowels & consonants</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello";
+    int v=0,c=0;
+    for(char ch:s){
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u') v++;
+        else c++;
+    }
+    cout&lt;&lt;v<<" "<<c;
+}
+</pre>
+
+<p>13. Palindrome</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="level", r=s;
+    reverse(r.begin(),r.end());
+    cout&lt;&lt;(s==r);
+}
+</pre>
+
+<p>14. Rotation</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string a="abc", b="cab";
+    cout&lt;&lt;((a+a).find(b)!=string::npos);
+}
+</pre>
+
+<p>15. Divide string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="abcdef";
+    int n=3, len=s.length()/n;
+    for(int i=0;i&lt;s.length();i+=len)
+        cout&lt;&lt;s.substr(i,len)<<endl;
+}
+</pre>
+
+<p>16. Subsets</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="ab";
+    for(int i=0;i&lt;(1&lt;&lt;s.length());i++){
+        for(int j=0;j&lt;s.length();j++)
+            if(i&(1&lt;&lt;j)) cout&lt;&lt;s[j];
+        cout&lt;&lt;endl;
+    }
+}
+</pre>
+
+<p>17. Permutations</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main(){
+    string s="abc";
+    sort(s.begin(),s.end());
+    do{ cout&lt;&lt;s<<endl; }
+    while(next_permutation(s.begin(),s.end()));
+}
+</pre>
+
+<p>18. Max & min char</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="aabbb";
+    int freq[256]={0};
+    for(char c:s) freq[c]++;
+    int max=0,min=1000;
+    char maxc,minc;
+    for(int i=0;i&lt;256;i++){
+        if(freq[i]&gt;0){
+            if(freq[i]&gt;max){max=freq[i]; maxc=i;}
+            if(freq[i]&lt;min){min=freq[i]; minc=i;}
+        }
+    }
+    cout&lt;&lt;maxc<<" "<<minc;
+}
+</pre>
+
+<p>19. Reverse string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello";
+    reverse(s.begin(),s.end());
+    cout&lt;&lt;s;
+}
+</pre>
+
+<p>20. Duplicate characters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="aabb";
+    for(int i=0;i&lt;s.length();i++)
+        for(int j=i+1;j&lt;s.length();j++)
+            if(s[i]==s[j]) cout&lt;&lt;s[i]<<" ";
+}
+</pre>
+
+<p>21–23. Duplicate words, frequency, largest word</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+int main(){
+    string s="hi hi hello";
+    stringstream ss(s);
+    string w, maxw="";
+    while(ss>>w){
+        if(w.length()&gt;maxw.length()) maxw=w;
+    }
+    cout&lt;&lt;maxw;
+}
+</pre>
+
+<p>24. Longest repeating sequence</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="aaaab";
+    int max=1,count=1;
+    for(int i=1;i&lt;s.length();i++){
+        if(s[i]==s[i-1]) count++;
+        else count=1;
+        if(count&gt;max) max=count;
+    }
+    cout&lt;&lt;max;
+}
+</pre>
+
+<p>25–26. File word count</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+int main(){
+    ifstream f("a.txt");
+    string w; int c=0;
+    while(f>>w) c++;
+    cout&lt;&lt;c;
+}
+</pre>
+
+<p>27. Get char</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello";
+    cout&lt;&lt;s[1];
+}
+</pre>
+
+<p>28. Insert string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello";
+    s.insert(2,"XX");
+    cout&lt;&lt;s;
+}
+</pre>
+
+<p>29. New line words</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+int main(){
+    string s="hi hello";
+    stringstream ss(s);
+    string w;
+    while(ss>>w) cout&lt;&lt;w<<endl;
+}
+</pre>
+
+<p>30. Even length words</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+int main(){
+    string s="hi hello";
+    stringstream ss(s);
+    string w;
+    while(ss>>w) if(w.length()%2==0) cout&lt;&lt;w<<endl;
+}
+</pre>
+
+<p>31–32. Palindrome words & remove spaces</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="a b c";
+    string r="";
+    for(char c:s) if(c!=' ') r+=c;
+    cout&lt;&lt;r;
+}
+</pre>
+
+<p>33. Toggle case</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="AbC";
+    for(char &c:s)
+        if(isupper(c)) c=tolower(c);
+        else c=toupper(c);
+    cout&lt;&lt;s;
+}
+</pre>
+
+<p>34. Replace spaces</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hi hello";
+    for(char &c:s) if(c==' ') c='-';
+    cout&lt;&lt;s;
+}
+</pre>
+
+<p>35. Separate chars</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="abc";
+    for(char c:s) cout&lt;&lt;c<<endl;
+}
+</pre>
+
+<p>36. Split substrings</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="abc";
+    for(int i=0;i&lt;s.length();i++)
+        cout&lt;&lt;s.substr(i,2)<<endl;
+}
+</pre>
+
+<p>37. Swap strings</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string a="hi", b="bye";
+    a=a+b;
+    b=a.substr(0,a.length()-b.length());
+    a=a.substr(b.length());
+    cout&lt;&lt;a<<" "<<b;
+}
+</pre>
+
+<p>38. Contains string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string a="hello", b="ell";
+    cout&lt;&lt;(a.find(b)!=string::npos);
+}
+</pre>
+
+<p>39. Reverse words</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+int main(){
+    string s="hi hello";
+    stringstream ss(s);
+    string w;
+    while(ss>>w){
+        reverse(w.begin(),w.end());
+        cout&lt;&lt;w<<" ";
+    }
+}
+</pre>
+
+<p>40. Same characters</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main(){
+    string a="abc", b="bca";
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    cout&lt;&lt;(a==b);
+}
+</pre>
+
+<p>41. First non-repeated char</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="aabbc";
+    for(int i=0;i&lt;s.length();i++){
+        int count=0;
+        for(int j=0;j&lt;s.length();j++)
+            if(s[i]==s[j]) count++;
+        if(count==1){ cout&lt;&lt;s[i]; break; }
+    }
+}
+</pre>
+
+<p>42–45. Count words/vowels</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="hello world";
+    int v=0;
+    for(char c:s)
+        if(string("aeiou").find(c)!=string::npos) v++;
+    cout&lt;&lt;v;
+}
+</pre>
+
+<p>46. Future investment</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main(){
+    double p=1000,r=0.1,n=2;
+    cout&lt;&lt;p*pow(1+r,n);
+}
+</pre>
+
+<p>47. Characters between</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    for(char c='A';c&lt;='P';c++) cout&lt;&lt;c<<" ";
+}
+</pre>
+
+<p>48. Valid password</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s="Abc123";
+    cout&lt;&lt;(s.length()&gt;=6);
+}
+</pre>
+
+<p>49. Current date & time</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+using namespace std;
+int main(){
+    time_t t=time(0);
+    cout&lt;&lt;ctime(&t);
+}
+</pre>
+
+<p>50. Middle number check</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+bool mid(int a,int b,int c){
+    return (b&gt;a && b&lt;c) || (b&lt;a && b&gt;c);
+}
+int main(){
+    cout&lt;&lt;mid(1,2,3);
+}
+</pre>
+</details>
+
+<hr>
+
+<details>
+<summary><b>4. Multi-Dimensional Arrays</b></summary>
+<p>1. Enter the Matrix of rows and columns entered by the user and print in matrix format</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r, c;
+    cin >> r >> c;
+    int a[r][c];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;r;i++) {
+        for(int j=0;j&lt;c;j++)
+            cout &lt;&lt; a[i][j] &lt;&lt; " ";
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>2. Program to Add Two Matrices</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c], b[r][c], sum[r][c];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> b[i][j];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            sum[i][j] = a[i][j] + b[i][j];
+
+    for(int i=0;i&lt;r;i++) {
+        for(int j=0;j&lt;c;j++)
+            cout &lt;&lt; sum[i][j] &lt;&lt; " ";
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>3. Program to Multiply Two Matrices</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r1,c1,r2,c2;
+    cin >> r1 >> c1 >> r2 >> c2;
+
+    int a[r1][c1], b[r2][c2], mul[r1][c2];
+
+    for(int i=0;i&lt;r1;i++)
+        for(int j=0;j&lt;c1;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;r2;i++)
+        for(int j=0;j&lt;c2;j++)
+            cin >> b[i][j];
+
+    for(int i=0;i&lt;r1;i++)
+        for(int j=0;j&lt;c2;j++) {
+            mul[i][j]=0;
+            for(int k=0;k&lt;c1;k++)
+                mul[i][j]+=a[i][k]*b[k][j];
+        }
+
+    for(int i=0;i&lt;r1;i++) {
+        for(int j=0;j&lt;c2;j++)
+            cout &lt;&lt; mul[i][j] &lt;&lt; " ";
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>4. Program to subtract the two matrices</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c], b[r][c], sub[r][c];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> b[i][j];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            sub[i][j] = a[i][j] - b[i][j];
+
+    for(int i=0;i&lt;r;i++) {
+        for(int j=0;j&lt;c;j++)
+            cout &lt;&lt; sub[i][j] &lt;&lt; " ";
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>5. Program to determine whether two matrices are equal</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c], b[r][c];
+    bool equal = true;
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++) {
+            cin >> b[i][j];
+            if(a[i][j] != b[i][j])
+                equal = false;
+        }
+
+    if(equal) cout &lt;&lt; "Equal";
+    else cout &lt;&lt; "Not Equal";
+}
+</pre>
+
+<p>6. Program to display the lower triangular matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a[n][n];
+
+    for(int i=0;i&lt;n;i++)
+        for(int j=0;j&lt;n;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;n;i++) {
+        for(int j=0;j&lt;n;j++) {
+            if(i&gt;=j)
+                cout &lt;&lt; a[i][j] &lt;&lt; " ";
+            else
+                cout &lt;&lt; "0 ";
+        }
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>7. Program to display the upper triangular matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a[n][n];
+
+    for(int i=0;i&lt;n;i++)
+        for(int j=0;j&lt;n;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;n;i++) {
+        for(int j=0;j&lt;n;j++) {
+            if(i&lt;=j)
+                cout &lt;&lt; a[i][j] &lt;&lt; " ";
+            else
+                cout &lt;&lt; "0 ";
+        }
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>8. Program to find the frequency of odd & even numbers in the given matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c], even=0, odd=0;
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++) {
+            cin >> a[i][j];
+            if(a[i][j]%2==0) even++;
+            else odd++;
+        }
+
+    cout &lt;&lt; "Even: " &lt;&lt; even &lt;&lt; endl;
+    cout &lt;&lt; "Odd: " &lt;&lt; odd;
+}
+</pre>
+
+<p>9. Program to find the sum of each row and each column of a matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;r;i++) {
+        int sum=0;
+        for(int j=0;j&lt;c;j++)
+            sum+=a[i][j];
+        cout &lt;&lt; "Row " &lt;&lt; i+1 &lt;&lt; ": " &lt;&lt; sum &lt;&lt; endl;
+    }
+
+    for(int j=0;j&lt;c;j++) {
+        int sum=0;
+        for(int i=0;i&lt;r;i++)
+            sum+=a[i][j];
+        cout &lt;&lt; "Col " &lt;&lt; j+1 &lt;&lt; ": " &lt;&lt; sum &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>10. Program to determine whether a given matrix is an identity matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a[n][n];
+    bool identity = true;
+
+    for(int i=0;i&lt;n;i++)
+        for(int j=0;j&lt;n;j++) {
+            cin >> a[i][j];
+            if((i==j && a[i][j]!=1) || (i!=j && a[i][j]!=0))
+                identity = false;
+        }
+
+    if(identity) cout &lt;&lt; "Identity Matrix";
+    else cout &lt;&lt; "Not Identity Matrix";
+}
+</pre>
+
+<p>11. Program to Transpose matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c];
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++)
+            cin >> a[i][j];
+
+    for(int i=0;i&lt;c;i++) {
+        for(int j=0;j&lt;r;j++)
+            cout &lt;&lt; a[j][i] &lt;&lt; " ";
+        cout &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>12. Program to determine whether a given matrix is a sparse matrix</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int r,c;
+    cin >> r >> c;
+    int a[r][c], zero=0;
+
+    for(int i=0;i&lt;r;i++)
+        for(int j=0;j&lt;c;j++) {
+            cin >> a[i][j];
+            if(a[i][j]==0) zero++;
+        }
+
+    if(zero &gt; (r*c)/2)
+        cout &lt;&lt; "Sparse Matrix";
+    else
+        cout &lt;&lt; "Not Sparse Matrix";
+}
+</pre>
+</details>
+
+<hr>
+
+<details>
+<summary><b>5. Basic Programming Constructs</b></summary>
+
+<p>1. Write a C++ program to print ‘Hello World!’ on screen</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; "Hello World!";
+}
+</pre>
+
+<p>2. Write a C++ program to print the sum of two numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    cout &lt;&lt; a+b;
+}
+</pre>
+
+<p>3. Write a C++ program that takes two numbers and display the product</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    cout &lt;&lt; a*b;
+}
+</pre>
+
+<p>4. Write a C++ program to print sum, multiply, subtract, divide and remainder</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    cout &lt;&lt; a+b &lt;&lt; endl;
+    cout &lt;&lt; a-b &lt;&lt; endl;
+    cout &lt;&lt; a*b &lt;&lt; endl;
+    cout &lt;&lt; a/b &lt;&lt; endl;
+    cout &lt;&lt; a%b;
+}
+</pre>
+
+<p>5. Write a C++ program to calculate average of five numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b,c,d,e;
+    cin >> a >> b >> c >> d >> e;
+    cout &lt;&lt; (a+b+c+d+e)/5.0;
+}
+</pre>
+
+<p>6. Write a C++ program to swap two variables</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b,temp;
+    cin >> a >> b;
+    temp=a;
+    a=b;
+    b=temp;
+    cout &lt;&lt; a &lt;&lt; " " &lt;&lt; b;
+}
+</pre>
+
+<p>7. Convert decimal to binary</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int bin[32],i=0;
+    while(n>0){
+        bin[i++]=n%2;
+        n/=2;
+    }
+    for(int j=i-1;j>=0;j--)
+        cout &lt;&lt; bin[j];
+}
+</pre>
+
+<p>8. Convert binary to decimal</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    int n,i=0,rem,dec=0;
+    cin >> n;
+    while(n>0){
+        rem=n%10;
+        dec += rem*pow(2,i);
+        n/=10;
+        i++;
+    }
+    cout &lt;&lt; dec;
+}
+</pre>
+
+<p>9. Check whether C++ is installed</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; "C++ is installed and running!";
+}
+</pre>
+
+<p>10. Sum of digits of an integer</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0;
+    cin >> n;
+    while(n>0){
+        sum+=n%10;
+        n/=10;
+    }
+    cout &lt;&lt; sum;
+}
+</pre>
+
+<p>11. Compare two numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    if(a>b) cout &lt;&lt; "A is greater";
+    else if(b>a) cout &lt;&lt; "B is greater";
+    else cout &lt;&lt; "Equal";
+}
+</pre>
+
+<p>12. Count letters, spaces, numbers, others</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    getline(cin,s);
+    int l=0,d=0,sp=0,o=0;
+    for(char c:s){
+        if(isalpha(c)) l++;
+        else if(isdigit(c)) d++;
+        else if(isspace(c)) sp++;
+        else o++;
+    }
+    cout &lt;&lt; l &lt;&lt; " " &lt;&lt; d &lt;&lt; " " &lt;&lt; sp &lt;&lt; " " &lt;&lt; o;
+}
+</pre>
+
+<p>13. Print ASCII value</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    char c;
+    cin >> c;
+    cout &lt;&lt; (int)c;
+}
+</pre>
+
+<p>14. Compute n+nn+nnn</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    cout &lt;&lt; n + n*11 + n*111;
+}
+</pre>
+
+<p>15. Display system time</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+using namespace std;
+int main() {
+    time_t now = time(0);
+    cout &lt;&lt; ctime(&now);
+}
+</pre>
+
+<p>16. Print odd numbers 1 to 20</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    for(int i=1;i<=20;i+=2)
+        cout &lt;&lt; i &lt;&lt; " ";
+}
+</pre>
+
+<p>17. Print even numbers 1 to 20</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    for(int i=2;i<=20;i+=2)
+        cout &lt;&lt; i &lt;&lt; " ";
+}
+</pre>
+
+<p>18. Convert string to integer</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    int n = stoi(s);
+    cout &lt;&lt; n;
+}
+</pre>
+
+<p>19. Convert seconds to hour, minute, seconds</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int sec;
+    cin >> sec;
+    cout &lt;&lt; sec/3600 &lt;&lt; " "
+         &lt;&lt; (sec%3600)/60 &lt;&lt; " "
+         &lt;&lt; sec%60;
+}
+</pre>
+
+<p>20. Sum of first 100 prime numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+bool prime(int n){
+    if(n&lt;2) return false;
+    for(int i=2;i*i&lt;=n;i++)
+        if(n%i==0) return false;
+    return true;
+}
+
+int main(){
+    int count=0,sum=0,i=2;
+    while(count&lt;100){
+        if(prime(i)){
+            sum+=i;
+            count++;
+        }
+        i++;
+    }
+    cout &lt;&lt; sum;
+}
+</pre>
+<p>21. Compute square root of a given integer</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    cout &lt;&lt; sqrt(n);
+}
+</pre>
+
+<p>22. Check if a number is palindrome</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,rev=0,temp;
+    cin >> n;
+    temp=n;
+    while(n>0){
+        rev=rev*10+n%10;
+        n/=10;
+    }
+    if(temp==rev) cout &lt;&lt; "Palindrome";
+    else cout &lt;&lt; "Not Palindrome";
+}
+</pre>
+
+<p>23. Add two numbers without arithmetic operators</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    while(b!=0){
+        int carry=a&b;
+        a=a^b;
+        b=carry&lt;&lt;1;
+    }
+    cout &lt;&lt; a;
+}
+</pre>
+
+<p>24. Add all digits of a number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0;
+    cin >> n;
+    while(n>0){
+        sum+=n%10;
+        n/=10;
+    }
+    cout &lt;&lt; sum;
+}
+</pre>
+
+<p>25. Area of circle</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float r;
+    cin >> r;
+    cout &lt;&lt; 3.14*r*r;
+}
+</pre>
+
+<p>26. Area of rectangle</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float l,b;
+    cin >> l >> b;
+    cout &lt;&lt; l*b;
+}
+</pre>
+
+<p>27. Area of triangle</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float b,h;
+    cin >> b >> h;
+    cout &lt;&lt; 0.5*b*h;
+}
+</pre>
+
+<p>28. Area of equilateral triangle</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    float a;
+    cin >> a;
+    cout &lt;&lt; (sqrt(3)/4)*a*a;
+}
+</pre>
+
+<p>29. Area of rhombus</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float d1,d2;
+    cin >> d1 >> d2;
+    cout &lt;&lt; (d1*d2)/2;
+}
+</pre>
+
+<p>30. Area of parallelogram</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float b,h;
+    cin >> b >> h;
+    cout &lt;&lt; b*h;
+}
+</pre>
+
+<p>31. Area of prism</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float l,b,h;
+    cin >> l >> b >> h;
+    cout &lt;&lt; 2*(l*b + b*h + h*l);
+}
+</pre>
+
+<p>32. Volume of sphere</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float r;
+    cin >> r;
+    cout &lt;&lt; (4.0/3)*3.14*r*r*r;
+}
+</pre>
+
+<p>33. Volume of cylinder</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float r,h;
+    cin >> r >> h;
+    cout &lt;&lt; 3.14*r*r*h;
+}
+</pre>
+
+<p>34. Volume of cuboid</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float l,b,h;
+    cin >> l >> b >> h;
+    cout &lt;&lt; l*b*h;
+}
+</pre>
+
+<p>35. Volume of cone</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float r,h;
+    cin >> r >> h;
+    cout &lt;&lt; (3.14*r*r*h)/3;
+}
+</pre>
+
+<p>36. Surface area of cuboid</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float l,b,h;
+    cin >> l >> b >> h;
+    cout &lt;&lt; 2*(l*b + b*h + h*l);
+}
+</pre>
+
+<p>37. Surface area of cylinder</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float r,h;
+    cin >> r >> h;
+    cout &lt;&lt; 2*3.14*r*(r+h);
+}
+</pre>
+
+<p>38. Surface area of cube</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float a;
+    cin >> a;
+    cout &lt;&lt; 6*a*a;
+}
+</pre>
+
+<p>39. Calculate average marks</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0,x;
+    cin >> n;
+    for(int i=0;i&lt;n;i++){
+        cin >> x;
+        sum+=x;
+    }
+    cout &lt;&lt; sum/(float)n;
+}
+</pre>
+
+<p>40. Check vowel or consonant</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    char c;
+    cin >> c;
+    if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||
+       c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
+        cout &lt;&lt; "Vowel";
+    else
+        cout &lt;&lt; "Consonant";
+}
+</pre>
+<p>41. Sum of N numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0,x;
+    cin >> n;
+    for(int i=0;i&lt;n;i++){
+        cin >> x;
+        sum+=x;
+    }
+    cout &lt;&lt; sum;
+}
+</pre>
+
+<p>42. Find factorial of a number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,f=1;
+    cin >> n;
+    for(int i=1;i&lt;=n;i++)
+        f*=i;
+    cout &lt;&lt; f;
+}
+</pre>
+
+<p>43. Calculate electricity bill</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int units;
+    float bill;
+    cin >> units;
+
+    if(units&lt;=100) bill=units*1.5;
+    else if(units&lt;=200) bill=100*1.5+(units-100)*2;
+    else bill=100*1.5+100*2+(units-200)*3;
+
+    cout &lt;&lt; bill;
+}
+</pre>
+
+<p>44. Calculate CGPA Percentage</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float cgpa;
+    cin >> cgpa;
+    cout &lt;&lt; cgpa*9.5;
+}
+</pre>
+
+<p>45. Calculate compound interest</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    float p,r,t;
+    cin >> p >> r >> t;
+    cout &lt;&lt; p*pow((1+r/100),t);
+}
+</pre>
+
+<p>46. Calculate batting average</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int runs,outs;
+    cin >> runs >> outs;
+    cout &lt;&lt; runs/(float)outs;
+}
+</pre>
+
+<p>47. Calculate commission percentage</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    float sales,commission;
+    cin >> sales >> commission;
+    cout &lt;&lt; (sales*commission)/100;
+}
+</pre>
+
+<p>48. Find distance between two points</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    float x1,y1,x2,y2;
+    cin >> x1 >> y1 >> x2 >> y2;
+    cout &lt;&lt; sqrt(pow(x2-x1,2)+pow(y2-y1,2));
+}
+</pre>
+
+<p>49. Calculate power of number</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    float a,b;
+    cin >> a >> b;
+    cout &lt;&lt; pow(a,b);
+}
+</pre>
+
+<p>50. Find greatest of three numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b,c;
+    cin >> a >> b >> c;
+    if(a&gt;b && a&gt;c) cout &lt;&lt; a;
+    else if(b&gt;c) cout &lt;&lt; b;
+    else cout &lt;&lt; c;
+}
+</pre>
+
+<p>51. Number of days in a month</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int m;
+    cin >> m;
+    if(m==2) cout &lt;&lt; 28;
+    else if(m==4||m==6||m==9||m==11) cout &lt;&lt; 30;
+    else cout &lt;&lt; 31;
+}
+</pre>
+
+<p>52. Check positive or negative</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    if(n&gt;0) cout &lt;&lt; "Positive";
+    else if(n&lt;0) cout &lt;&lt; "Negative";
+    else cout &lt;&lt; "Zero";
+}
+</pre>
+
+<p>53. Print day name from number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int d;
+    cin >> d;
+    switch(d){
+        case 1: cout &lt;&lt; "Monday"; break;
+        case 2: cout &lt;&lt; "Tuesday"; break;
+        case 3: cout &lt;&lt; "Wednesday"; break;
+        case 4: cout &lt;&lt; "Thursday"; break;
+        case 5: cout &lt;&lt; "Friday"; break;
+        case 6: cout &lt;&lt; "Saturday"; break;
+        case 7: cout &lt;&lt; "Sunday"; break;
+    }
+}
+</pre>
+
+<p>54. Check leap year</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int y;
+    cin >> y;
+    if((y%4==0 && y%100!=0) || y%400==0)
+        cout &lt;&lt; "Leap Year";
+    else
+        cout &lt;&lt; "Not Leap Year";
+}
+</pre>
+
+<p>55. Sum and average of 5 numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b,c,d,e,sum;
+    cin >> a >> b >> c >> d >> e;
+    sum=a+b+c+d+e;
+    cout &lt;&lt; sum &lt;&lt; " " &lt;&lt; sum/5.0;
+}
+</pre>
+
+<p>56. Display first 5 natural numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    for(int i=1;i&lt;=5;i++)
+        cout &lt;&lt; i &lt;&lt; " ";
+}
+</pre>
+
+<p>57. Check vowel or consonant</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    char c;
+    cin >> c;
+    if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+        cout &lt;&lt; "Vowel";
+    else
+        cout &lt;&lt; "Consonant";
+}
+</pre>
+
+<p>58. Display cube of numbers up to n</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    for(int i=1;i&lt;=n;i++)
+        cout &lt;&lt; i*i*i &lt;&lt; " ";
+}
+</pre>
+
+<p>59. Display n odd numbers and their sum</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0;
+    cin >> n;
+    for(int i=1;i&lt;=n;i++){
+        int val=2*i-1;
+        cout &lt;&lt; val &lt;&lt; " ";
+        sum+=val;
+    }
+    cout &lt;&lt; endl &lt;&lt; sum;
+}
+</pre>
+
+<p>60. Multiplication table</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    for(int i=1;i&lt;=10;i++)
+        cout &lt;&lt; n*i &lt;&lt; endl;
+}
+</pre>
+<p>61. Check whether number is negative, zero or positive</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    if(n&gt;0) cout &lt;&lt; "Positive";
+    else if(n&lt;0) cout &lt;&lt; "Negative";
+    else cout &lt;&lt; "Zero";
+}
+</pre>
+
+<p>62. Count number of digits</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,count=0;
+    cin >> n;
+    while(n!=0){
+        count++;
+        n/=10;
+    }
+    cout &lt;&lt; count;
+}
+</pre>
+
+<p>63. Check all three numbers are equal or not</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b,c;
+    cin >> a >> b >> c;
+    if(a==b && b==c)
+        cout &lt;&lt; "Equal";
+    else
+        cout &lt;&lt; "Not Equal";
+}
+</pre>
+
+<p>64. Check increasing or decreasing order</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b,c;
+    cin >> a >> b >> c;
+    if(a&lt;b && b&lt;c)
+        cout &lt;&lt; "Increasing";
+    else if(a&gt;b && b&gt;c)
+        cout &lt;&lt; "Decreasing";
+    else
+        cout &lt;&lt; "Neither";
+}
+</pre>
+
+<p>65. Determine student grade</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int m;
+    cin >> m;
+    if(m&gt;=81) cout &lt;&lt; "A";
+    else if(m&gt;=61) cout &lt;&lt; "B";
+    else if(m&gt;=41) cout &lt;&lt; "C";
+    else cout &lt;&lt; "D";
+}
+</pre>
+
+<p>66. Simple calculator</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main() {
+    int ch;
+    float a,b;
+    cin >> ch;
+    if(ch==7) return 0;
+    cin >> a >> b;
+
+    switch(ch){
+        case 1: cout &lt;&lt; a+b; break;
+        case 2: cout &lt;&lt; a-b; break;
+        case 3: cout &lt;&lt; a*b; break;
+        case 4: cout &lt;&lt; a/b; break;
+        case 5: cout &lt;&lt; pow(a,b); break;
+        case 6: cout &lt;&lt; (a/b)*100; break;
+    }
+}
+</pre>
+
+<p>67. Concatenate two strings</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string a,b;
+    cin >> a >> b;
+    cout &lt;&lt; a+b;
+}
+</pre>
+
+<p>68. Convert string to lowercase</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    for(char &c:s)
+        c=tolower(c);
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>69. Convert string to uppercase</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    for(char &c:s)
+        c=toupper(c);
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>70. Trim spaces from string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s,res="";
+    getline(cin,s);
+    for(char c:s)
+        if(c!=' ')
+            res+=c;
+    cout &lt;&lt; res;
+}
+</pre>
+
+<p>71. Get substring between positions</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    int a,b;
+    cin >> s >> a >> b;
+    cout &lt;&lt; s.substr(a,b-a+1);
+}
+</pre>
+
+<p>72. Replace 'd' with 'f'</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    for(char &c:s)
+        if(c=='d') c='f';
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>73. Get length of string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    cout &lt;&lt; s.length();
+}
+</pre>
+
+<p>74. Print current date and time</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+using namespace std;
+int main() {
+    time_t now = time(0);
+    cout &lt;&lt; ctime(&now);
+}
+</pre>
+
+<p>75. Get character at given index</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    int i;
+    cin >> s >> i;
+    cout &lt;&lt; s[i];
+}
+</pre>
+
+<p>76. Remove a character from string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s,res="";
+    char ch;
+    cin >> s >> ch;
+    for(char c:s)
+        if(c!=ch) res+=c;
+    cout &lt;&lt; res;
+}
+</pre>
+
+<p>77. Reverse a string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    cin >> s;
+    for(int i=s.length()-1;i&gt;=0;i--)
+        cout &lt;&lt; s[i];
+}
+</pre>
+
+<p>78. Remove HTML tags</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s,res="";
+    getline(cin,s);
+    bool inside=false;
+    for(char c:s){
+        if(c=='&lt;') inside=true;
+        else if(c=='&gt;') inside=false;
+        else if(!inside) res+=c;
+    }
+    cout &lt;&lt; res;
+}
+</pre>
+
+<p>79. Count number of lines in string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    string s;
+    int count=1;
+    while(getline(cin,s))
+        count++;
+    cout &lt;&lt; count;
+}
+</pre>
+
+<p>80. Accept marks and find total and percentage</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0,x;
+    cin >> n;
+    for(int i=0;i&lt;n;i++){
+        cin >> x;
+        sum+=x;
+    }
+    cout &lt;&lt; sum &lt;&lt; " " &lt;&lt; sum/(float)n;
+}
+</pre>
+<p>81. Print numbers from 1 to 10</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    for(int i=1;i&lt;=10;i++)
+        cout &lt;&lt; i &lt;&lt; " ";
+}
+</pre>
+
+<p>82. Sum of first 10 natural numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int sum=0;
+    for(int i=1;i&lt;=10;i++)
+        sum+=i;
+    cout &lt;&lt; sum;
+}
+</pre>
+
+<p>83. Multiplication table</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    for(int i=1;i&lt;=10;i++)
+        cout &lt;&lt; n*i &lt;&lt; endl;
+}
+</pre>
+
+<p>84. Factorial using loop</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,f=1;
+    cin >> n;
+    for(int i=1;i&lt;=n;i++)
+        f*=i;
+    cout &lt;&lt; f;
+}
+</pre>
+
+<p>85. Reverse digits of a number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,rev=0;
+    cin >> n;
+    while(n>0){
+        rev=rev*10+n%10;
+        n/=10;
+    }
+    cout &lt;&lt; rev;
+}
+</pre>
+
+<p>86. Sum of even and odd numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,x,even=0,odd=0;
+    cin >> n;
+    for(int i=0;i&lt;n;i++){
+        cin >> x;
+        if(x%2==0) even+=x;
+        else odd+=x;
+    }
+    cout &lt;&lt; even &lt;&lt; " " &lt;&lt; odd;
+}
+</pre>
+
+<p>87. Check prime number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    bool prime=true;
+    for(int i=2;i*i&lt;=n;i++)
+        if(n%i==0) prime=false;
+
+    if(n&lt;2) prime=false;
+
+    if(prime) cout &lt;&lt; "Prime";
+    else cout &lt;&lt; "Not Prime";
+}
+</pre>
+
+<p>88. HCF of two numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    while(b!=0){
+        int t=b;
+        b=a%b;
+        a=t;
+    }
+    cout &lt;&lt; a;
+}
+</pre>
+
+<p>89. Count positive, negative and zero</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,x,pos=0,neg=0,zero=0;
+    cin >> n;
+    for(int i=0;i&lt;n;i++){
+        cin >> x;
+        if(x&gt;0) pos++;
+        else if(x&lt;0) neg++;
+        else zero++;
+    }
+    cout &lt;&lt; pos &lt;&lt; " " &lt;&lt; neg &lt;&lt; " " &lt;&lt; zero;
+}
+</pre>
+
+<p>90. Largest and smallest number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,x,minn,maxx;
+    cin >> n;
+    cin >> x;
+    minn=maxx=x;
+    for(int i=1;i&lt;n;i++){
+        cin >> x;
+        if(x&lt;minn) minn=x;
+        if(x&gt;maxx) maxx=x;
+    }
+    cout &lt;&lt; maxx &lt;&lt; " " &lt;&lt; minn;
+}
+</pre>
+
+<p>91. Armstrong numbers from 1 to 600</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    for(int i=1;i&lt;=600;i++){
+        int n=i,sum=0;
+        while(n>0){
+            int d=n%10;
+            sum+=d*d*d;
+            n/=10;
+        }
+        if(sum==i) cout &lt;&lt; i &lt;&lt; " ";
+    }
+}
+</pre>
+
+<p>92. Count number of notes</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int amt;
+    cin >> amt;
+    int notes[]={2000,500,200,100,50,20,10,5,2,1};
+    for(int i=0;i&lt;10;i++){
+        cout &lt;&lt; notes[i] &lt;&lt; ": " &lt;&lt; amt/notes[i] &lt;&lt; endl;
+        amt%=notes[i];
+    }
+}
+</pre>
+
+<p>93. Fibonacci series</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,a=0,b=1,c;
+    cin >> n;
+    for(int i=0;i&lt;n;i++){
+        cout &lt;&lt; a &lt;&lt; " ";
+        c=a+b;
+        a=b;
+        b=c;
+    }
+}
+</pre>
+
+<p>94. Sum of series (1+2+...+n)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int n,sum=0;
+    cin >> n;
+    for(int i=1;i&lt;=n;i++)
+        sum+=i;
+    cout &lt;&lt; sum;
+}
+</pre>
+
+<p>95. Average of three numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+float avg(float a,float b,float c){
+    return (a+b+c)/3;
+}
+int main(){
+    float a,b,c;
+    cin >> a >> b >> c;
+    cout &lt;&lt; avg(a,b,c);
+}
+</pre>
+
+<p>96. Smallest among three numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a,b,c;
+    cin >> a >> b >> c;
+    if(a&lt;b && a&lt;c) cout &lt;&lt; a;
+    else if(b&lt;c) cout &lt;&lt; b;
+    else cout &lt;&lt; c;
+}
+</pre>
+
+<p>97. Leap year using function</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+bool leap(int y){
+    return (y%4==0 && y%100!=0)||y%400==0;
+}
+int main(){
+    int y;
+    cin >> y;
+    if(leap(y)) cout &lt;&lt; "Leap";
+    else cout &lt;&lt; "Not Leap";
+}
+</pre>
+
+<p>98. Round float value</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main(){
+    float x;
+    cin >> x;
+    cout &lt;&lt; round(x);
+}
+</pre>
+
+<p>99. Sum of digits using function</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int sum(int n){
+    int s=0;
+    while(n){
+        s+=n%10;
+        n/=10;
+    }
+    return s;
+}
+int main(){
+    int n;
+    cin >> n;
+    cout &lt;&lt; sum(n);
+}
+</pre>
+
+<p>100. Area of triangle using function</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+float area(float b,float h){
+    return 0.5*b*h;
+}
+int main(){
+    float b,h;
+    cin >> b >> h;
+    cout &lt;&lt; area(b,h);
+}
+</pre>
+
+<p>101. Area of pentagon</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main(){
+    float a;
+    cin >> a;
+    cout &lt;&lt; (5*a*a)/(4*tan(3.14/5));
+}
+</pre>
+
+<p>102. Check even number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int n;
+    cin >> n;
+    if(n%2==0) cout &lt;&lt; "Even";
+    else cout &lt;&lt; "Odd";
+}
+</pre>
+
+<p>103. Palindrome using function</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+bool pal(int n){
+    int r=0,t=n;
+    while(n){
+        r=r*10+n%10;
+        n/=10;
+    }
+    return r==t;
+}
+int main(){
+    int n;
+    cin >> n;
+    if(pal(n)) cout &lt;&lt; "Palindrome";
+    else cout &lt;&lt; "Not";
+}
+</pre>
+
+<p>104. Prime numbers from 1 to 20</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    for(int i=2;i&lt;=20;i++){
+        bool p=true;
+        for(int j=2;j*j&lt;=i;j++)
+            if(i%j==0) p=false;
+        if(p) cout &lt;&lt; i &lt;&lt; " ";
+    }
+}
+</pre>
+
+<p>105. GCD and LCM</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a,b,x,y;
+    cin >> a >> b;
+    x=a; y=b;
+    while(b!=0){
+        int t=b;
+        b=a%b;
+        a=t;
+    }
+    cout &lt;&lt; "GCD: " &lt;&lt; a &lt;&lt; endl;
+    cout &lt;&lt; "LCM: " &lt;&lt; (x*y)/a;
+}
+</pre>
+
+<p>106. Factorial using recursion</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int fact(int n){
+    if(n==0) return 1;
+    return n*fact(n-1);
+}
+int main(){
+    int n;
+    cin >> n;
+    cout &lt;&lt; fact(n);
+}
+</pre>
+
+<p>107. Reverse integer</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int n,rev=0;
+    cin >> n;
+    while(n){
+        rev=rev*10+n%10;
+        n/=10;
+    }
+    cout &lt;&lt; rev;
+}
+</pre>
+
+<p>108. Round float to decimals</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+using namespace std;
+int main(){
+    float x;
+    cin >> x;
+    cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; x;
+}
+</pre>
+
+<p>109. Check double is integer</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    double x;
+    cin >> x;
+    if(x==(int)x) cout &lt;&lt; "Integer";
+    else cout &lt;&lt; "Not Integer";
+}
+</pre>
+
+<p>110. Round up division</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    int a,b;
+    cin >> a >> b;
+    cout &lt;&lt; (a+b-1)/b;
+}
+</pre>
+
+<p>111. Roman to integer</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int value(char r){
+    if(r=='I') return 1;
+    if(r=='V') return 5;
+    if(r=='X') return 10;
+    if(r=='L') return 50;
+    if(r=='C') return 100;
+    if(r=='D') return 500;
+    if(r=='M') return 1000;
+    return 0;
+}
+int main(){
+    string s;
+    cin >> s;
+    int sum=0;
+    for(int i=0;i&lt;s.length();i++){
+        if(i+1&lt;s.length() && value(s[i])&lt;value(s[i+1]))
+            sum-=value(s[i]);
+        else
+            sum+=value(s[i]);
+    }
+    cout &lt;&lt; sum;
+}
+</pre>
+
+<p>112. Absolute value of float</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main(){
+    float x;
+    cin >> x;
+    cout &lt;&lt; fabs(x);
+}
+</pre>
+
+<p>113. Command line arguments</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+int main(int argc, char* argv[]){
+    for(int i=0;i&lt;argc;i++)
+        cout &lt;&lt; argv[i] &lt;&lt; endl;
+}
+</pre>
+</details>
+
+<hr>
+
+<details>
+<summary><b>6. Inheritance</b></summary>
+
+<p>1. Animal and Cat (override makeSound)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal{
+public:
+    virtual void makeSound(){
+        cout &lt;&lt; "Animal Sound";
+    }
+};
+
+class Cat: public Animal{
+public:
+    void makeSound(){
+        cout &lt;&lt; "Bark";
+    }
+};
+
+int main(){
+    Cat c;
+    c.makeSound();
+}
+</pre>
+
+<p>2. Vehicle and Car (override drive)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Vehicle{
+public:
+    virtual void drive(){
+        cout &lt;&lt; "Driving";
+    }
+};
+
+class Car: public Vehicle{
+public:
+    void drive(){
+        cout &lt;&lt; "Repairing a car";
+    }
+};
+
+int main(){
+    Car c;
+    c.drive();
+}
+</pre>
+
+<p>3. Shape and Rectangle (area)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape{
+public:
+    virtual int getArea(){
+        return 0;
+    }
+};
+
+class Rectangle: public Shape{
+    int l,b;
+public:
+    Rectangle(int l,int b){this-&gt;l=l; this-&gt;b=b;}
+    int getArea(){
+        return l*b;
+    }
+};
+
+int main(){
+    Rectangle r(4,5);
+    cout &lt;&lt; r.getArea();
+}
+</pre>
+
+<p>4. Employee and HRManager</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Employee{
+public:
+    virtual void work(){
+        cout &lt;&lt; "Working";
+    }
+};
+
+class HRManager: public Employee{
+public:
+    void work(){
+        cout &lt;&lt; "Managing HR";
+    }
+    void addEmployee(){
+        cout &lt;&lt; "Employee Added";
+    }
+};
+
+int main(){
+    HRManager h;
+    h.work();
+    cout &lt;&lt; endl;
+    h.addEmployee();
+}
+</pre>
+
+<p>5. BankAccount and SavingsAccount</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class BankAccount{
+protected:
+    int balance;
+public:
+    BankAccount(){balance=0;}
+    void deposit(int x){balance+=x;}
+    virtual void withdraw(int x){balance-=x;}
+};
+
+class SavingsAccount: public BankAccount{
+public:
+    void withdraw(int x){
+        if(balance-x &lt; 100)
+            cout &lt;&lt; "Minimum balance required";
+        else
+            balance -= x;
+    }
+    void show(){cout &lt;&lt; balance;}
+};
+
+int main(){
+    SavingsAccount s;
+    s.deposit(200);
+    s.withdraw(150);
+    s.show();
+}
+</pre>
+
+<p>6. Animal and Cheetah (move)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal{
+public:
+    virtual void move(){
+        cout &lt;&lt; "Animal moves";
+    }
+};
+
+class Cheetah: public Animal{
+public:
+    void move(){
+        cout &lt;&lt; "Cheetah runs";
+    }
+};
+
+int main(){
+    Cheetah c;
+    c.move();
+}
+</pre>
+
+<p>7. Person and Employee</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Person{
+public:
+    string fname="John", lname="Doe";
+    virtual string getLastName(){
+        return lname;
+    }
+};
+
+class Employee: public Person{
+    int id=101;
+public:
+    int getEmployeeId(){return id;}
+    string getLastName(){
+        return lname + " (Manager)";
+    }
+};
+
+int main(){
+    Employee e;
+    cout &lt;&lt; e.getEmployeeId() &lt;&lt; endl;
+    cout &lt;&lt; e.getLastName();
+}
+</pre>
+
+<p>8. Shape and Circle (area & perimeter)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape{
+public:
+    virtual float getArea(){return 0;}
+    virtual float getPerimeter(){return 0;}
+};
+
+class Circle: public Shape{
+    float r;
+public:
+    Circle(float r){this-&gt;r=r;}
+    float getArea(){return 3.14*r*r;}
+    float getPerimeter(){return 2*3.14*r;}
+};
+
+int main(){
+    Circle c(5);
+    cout &lt;&lt; c.getArea() &lt;&lt; endl;
+    cout &lt;&lt; c.getPerimeter();
+}
+</pre>
+
+<p>9. Vehicle hierarchy</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Vehicle{
+public:
+    string make,model;
+    int year;
+};
+
+class Car: public Vehicle{
+public:
+    void show(){cout &lt;&lt; "Car";}
+};
+
+class Truck: public Vehicle{
+public:
+    void show(){cout &lt;&lt; "Truck";}
+};
+
+class Motorcycle: public Vehicle{
+public:
+    void show(){cout &lt;&lt; "Bike";}
+};
+
+int main(){
+    Car c; c.show();
+}
+</pre>
+
+<p>10. Employee hierarchy</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Employee{
+public:
+    string name;
+    virtual void bonus(){
+        cout &lt;&lt; "Base Bonus";
+    }
+};
+
+class Manager: public Employee{
+public:
+    void bonus(){cout &lt;&lt; "Manager Bonus";}
+};
+
+class Developer: public Employee{
+public:
+    void bonus(){cout &lt;&lt; "Developer Bonus";}
+};
+
+int main(){
+    Manager m;
+    Developer d;
+    m.bonus(); cout &lt;&lt; endl;
+    d.bonus();
+}
+</pre></details>
+
+<hr>
+
+<details>
+<summary><b>7. Data Conversion</b></summary>
+
+<p>1. String to int</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string s="123";
+    int x = stoi(s);
+    cout &lt;&lt; x;
+}
+</pre>
+
+<p>2. int to String</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int x=123;
+    string s = to_string(x);
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>3. String to long</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string s="123456";
+    long x = stol(s);
+    cout &lt;&lt; x;
+}
+</pre>
+
+<p>4. long to String</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    long x=123456;
+    string s = to_string(x);
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>5. String to float</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string s="12.34";
+    float x = stof(s);
+    cout &lt;&lt; x;
+}
+</pre>
+
+<p>6. float to String</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    float x=12.34;
+    string s = to_string(x);
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>7. String to double</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string s="56.78";
+    double x = stod(s);
+    cout &lt;&lt; x;
+}
+</pre>
+
+<p>8. double to String</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    double x=56.78;
+    string s = to_string(x);
+    cout &lt;&lt; s;
+}
+</pre>
+
+<p>9. char to int</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    char c='5';
+    int x = c - '0';
+    cout &lt;&lt; x;
+}
+</pre>
+
+<p>10. int to char</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int x=5;
+    char c = x + '0';
+    cout &lt;&lt; c;
+}
+</pre>
+
+<p>11. Binary to Decimal</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int bin, dec=0, base=1, rem;
+    cin >> bin;
+    while(bin>0){
+        rem = bin % 10;
+        dec += rem * base;
+        base *= 2;
+        bin /= 10;
+    }
+    cout &lt;&lt; dec;
+}
+</pre>
+
+<p>12. Decimal to Binary</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    int bin[32], i=0;
+    while(n>0){
+        bin[i++] = n%2;
+        n/=2;
+    }
+    for(int j=i-1;j>=0;j--)
+        cout &lt;&lt; bin[j];
+}
+</pre>
+
+<p>13. Hex to Decimal</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string hex;
+    cin >> hex;
+    int dec = stoi(hex, 0, 16);
+    cout &lt;&lt; dec;
+}
+</pre>
+
+<p>14. Decimal to Hex</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    stringstream ss;
+    ss &lt;&lt; hex &lt;&lt; n;
+    cout &lt;&lt; ss.str();
+}
+</pre>
+
+<p>15. Octal to Decimal</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string oct;
+    cin >> oct;
+    int dec = stoi(oct, 0, 8);
+    cout &lt;&lt; dec;
+}
+</pre>
+
+<p>16. Decimal to Octal</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    stringstream ss;
+    ss &lt;&lt; oct &lt;&lt; n;
+    cout &lt;&lt; ss.str();
+}
+</pre></details>
+
+<hr>
+
+<details>
+<summary><b>8. OOPs</b></summary>
+
+<p>1. Class Person with name and age</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Person{
+public:
+    string name; int age;
+    Person(string n,int a){name=n;age=a;}
+    void show(){cout&lt;&lt;name&lt;&lt;" "&lt;&lt;age;}
+};
+int main(){
+    Person p1("John",20), p2("Alice",25);
+    p1.show(); cout&lt;&lt;endl; p2.show();
+}
+</pre>
+
+<p>2. Class Dog with setters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Dog{
+    string name,breed;
+public:
+    Dog(string n,string b){name=n;breed=b;}
+    void setName(string n){name=n;}
+    void setBreed(string b){breed=b;}
+    void show(){cout&lt;&lt;name&lt;&lt;" "&lt;&lt;breed;}
+};
+int main(){
+    Dog d("Tom","Pug");
+    d.setName("Rocky");
+    d.setBreed("Bulldog");
+    d.show();
+}
+</pre>
+
+<p>3. Rectangle area & perimeter</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Rectangle{
+    int w,h;
+public:
+    Rectangle(int w,int h){this-&gt;w=w;this-&gt;h=h;}
+    void calc(){cout&lt;&lt;w*h&lt;&lt;" "&lt;&lt;2*(w+h);}
+};
+int main(){Rectangle r(5,4); r.calc();}
+</pre>
+
+<p>4. Circle area & circumference</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Circle{
+    float r;
+public:
+    Circle(float r){this-&gt;r=r;}
+    void calc(){cout&lt;&lt;3.14*r*r&lt;&lt;" "&lt;&lt;2*3.14*r;}
+};
+int main(){Circle c(5); c.calc();}
+</pre>
+
+<p>5. Book collection add/remove</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Book{
+public:
+    string title;
+    Book(string t){title=t;}
+};
+int main(){
+    vector&lt;Book&gt; b;
+    b.push_back(Book("C++"));
+    b.push_back(Book("Java"));
+    b.pop_back();
+    for(auto x:b) cout&lt;&lt;x.title&lt;&lt;" ";
+}
+</pre>
+
+<p>6. Employee salary update</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Employee{
+    string name; float salary;
+public:
+    Employee(string n,float s){name=n;salary=s;}
+    void update(float x){salary+=x;}
+    void show(){cout&lt;&lt;name&lt;&lt;" "&lt;&lt;salary;}
+};
+int main(){
+    Employee e("A",1000);
+    e.update(500);
+    e.show();
+}
+</pre>
+
+<p>7. Bank & Account</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Account{
+public:
+    int bal=0;
+    void deposit(int x){bal+=x;}
+    void withdraw(int x){bal-=x;}
+};
+int main(){
+    Account a;
+    a.deposit(1000);
+    a.withdraw(200);
+    cout&lt;&lt;a.bal;
+}
+</pre>
+
+<p>8. TrafficLight</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class TrafficLight{
+    string color;
+public:
+    TrafficLight(string c){color=c;}
+    void change(string c){color=c;}
+    void show(){cout&lt;&lt;color;}
+};
+int main(){
+    TrafficLight t("Red");
+    t.change("Green");
+    t.show();
+}
+</pre>
+
+<p>9. Employee years of service</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Employee{
+    int hire;
+public:
+    Employee(int h){hire=h;}
+    void service(int now){cout&lt;&lt;now-hire;}
+};
+int main(){
+    Employee e(2015);
+    e.service(2025);
+}
+</pre>
+
+<p>10. Student courses</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Student{
+    vector&lt;string&gt; c;
+public:
+    void add(string x){c.push_back(x);}
+    void show(){for(auto x:c) cout&lt;&lt;x&lt;&lt;" ";}
+};
+int main(){
+    Student s;
+    s.add("Math");
+    s.add("Sci");
+    s.show();
+}
+</pre>
+
+<p>11. Library</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Library{
+    vector&lt;string&gt; b;
+public:
+    void add(string x){b.push_back(x);}
+    void show(){for(auto x:b) cout&lt;&lt;x&lt;&lt;" ";}
+};
+int main(){Library l; l.add("Book1"); l.show();}
+</pre>
+
+<p>12. Airplane</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Airplane{
+    string status="On Time";
+public:
+    void delay(){status="Delayed";}
+    void show(){cout&lt;&lt;status;}
+};
+int main(){Airplane a; a.delay(); a.show();}
+</pre>
+
+<p>13. Inventory</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Inventory{
+    vector&lt;int&gt; items;
+public:
+    void add(int x){items.push_back(x);}
+    void show(){for(int x:items) cout&lt;&lt;x&lt;&lt;" ";}
+};
+int main(){Inventory i; i.add(10); i.show();}
+</pre>
+
+<p>14. School</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class School{
+    int students=0;
+public:
+    void add(){students++;}
+    void show(){cout&lt;&lt;students;}
+};
+int main(){School s; s.add(); s.show();}
+</pre>
+
+<p>15. MusicLibrary</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Music{
+    vector&lt;string&gt; songs;
+public:
+    void add(string s){songs.push_back(s);}
+    void show(){for(auto x:songs) cout&lt;&lt;x;}
+};
+int main(){Music m; m.add("Song"); m.show();}
+</pre>
+
+<p>16. Abstract Shape</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Shape{
+public:
+    virtual void area()=0;
+};
+class Rect: public Shape{
+public:
+    void area(){cout&lt;&lt;"Rectangle Area";}
+};
+int main(){Rect r; r.area();}
+</pre>
+
+<p>17. Movie reviews</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Movie{
+    vector&lt;string&gt; r;
+public:
+    void add(string x){r.push_back(x);}
+    void show(){for(auto x:r) cout&lt;&lt;x;}
+};
+int main(){Movie m; m.add("Good"); m.show();}
+</pre>
+
+<p>18. Restaurant</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Restaurant{
+    int rating;
+public:
+    Restaurant(int r){rating=r;}
+    void show(){cout&lt;&lt;rating;}
+};
+int main(){Restaurant r(5); r.show();}
+</pre>
+
+<p>19. Travel booking</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Travel{
+public:
+    void book(){cout&lt;&lt;"Booked";}
+};
+int main(){Travel t; t.book();}
+</pre>
+
+<p>20. Default constructor</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class A{
+public:
+    A(){cout&lt;&lt;"Default";}
+};
+int main(){A a;}
+</pre>
+
+<p>21. Parameterized constructor</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class A{
+public:
+    A(int x){cout&lt;&lt;x;}
+};
+int main(){A a(10);}
+</pre>
+
+<p>22. Copy constructor</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class A{
+public:
+    int x;
+    A(int a){x=a;}
+    A(const A &amp;o){x=o.x;}
+};
+int main(){A a1(5); A a2=a1; cout&lt;&lt;a2.x;}
+</pre>
+
+<p>23. Auto roll number</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Student{
+    static int c;
+public:
+    int roll;
+    Student(){roll=++c;}
+};
+int Student::c=0;
+int main(){Student s1,s2; cout&lt;&lt;s1.roll&lt;&lt;" "&lt;&lt;s2.roll;}
+</pre>
+
+<p>24. Method overloading</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Area{
+public:
+    float calc(float r){return 3.14*r*r;}
+    float calc(float l,float b){return l*b;}
+};
+int main(){Area a; cout&lt;&lt;a.calc(5)&lt;&lt;" "&lt;&lt;a.calc(4,5);}
+</pre>
+
+<p>25. Person getters/setters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Person{
+    string name;
+public:
+    void set(string n){name=n;}
+    string get(){return name;}
+};
+int main(){Person p; p.set("John"); cout&lt;&lt;p.get();}
+</pre>
+
+<p>26. BankAccount</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Bank{
+    int acc; float bal;
+public:
+    void set(int a,float b){acc=a;bal=b;}
+    float get(){return bal;}
+};
+int main(){Bank b; b.set(1,1000); cout&lt;&lt;b.get();}
+</pre>
+
+<p>27. Rectangle getters/setters</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Rect{
+    int l,w;
+public:
+    void set(int a,int b){l=a;w=b;}
+    int area(){return l*w;}
+};
+int main(){Rect r; r.set(4,5); cout&lt;&lt;r.area();}
+</pre>
+
+<p>28. Employee formatted salary</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Employee{
+    int id; string name; float sal;
+public:
+    void set(int i,string n,float s){id=i;name=n;sal=s;}
+    string getSal(){return "Salary: "+to_string(sal);}
+};
+int main(){Employee e; e.set(1,"A",1000); cout&lt;&lt;e.getSal();}
+</pre>
+
+<p>29. Circle getters methods</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Circle{
+    float r;
+public:
+    void set(float x){r=x;}
+    float area(){return 3.14*r*r;}
+};
+int main(){Circle c; c.set(5); cout&lt;&lt;c.area();}
+</pre>
+
+<p>30. Car class</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+class Car{
+    string name; int year; float mileage;
+public:
+    void set(string n,int y,float m){name=n;year=y;mileage=m;}
+    float get(){return mileage;}
+};
+int main(){Car c; c.set("BMW",2020,15); cout&lt;&lt;c.get();}
+</pre>
+
+<p>31. Student grades validation</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+class Student{
+    vector&lt;int&gt; g;
+public:
+    void add(int x){if(x&gt;=0 && x&lt;=100) g.push_back(x);}
+    void show(){for(int x:g) cout&lt;&lt;x&lt;&lt;" ";}
+};
+int main(){Student s; s.add(90); s.add(110); s.show();}
+</pre>
+</details>
+
+<hr>
+
+<details>
+<summary><b>9. Operator Overloading</b></summary>
+
+<p>1. Class Complex with + operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Complex{
+public:
+    int real, imag;
+    Complex(int r,int i){real=r; imag=i;}
+
+    Complex operator+(Complex c){
+        return Complex(real+c.real, imag+c.imag);
+    }
+
+    void display(){
+        cout &lt;&lt; real &lt;&lt; "+" &lt;&lt; imag &lt;&lt; "i";
+    }
+};
+
+int main(){
+    Complex c1(2,3), c2(4,5);
+    Complex c3 = c1 + c2;
+    c3.display();
+}
+</pre>
+
+<p>2. Class Fraction with + operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Fraction{
+public:
+    int num, den;
+    Fraction(int n,int d){num=n; den=d;}
+
+    Fraction operator+(Fraction f){
+        int n = num*f.den + f.num*den;
+        int d = den * f.den;
+        return Fraction(n,d);
+    }
+
+    void display(){
+        cout &lt;&lt; num &lt;&lt; "/" &lt;&lt; den;
+    }
+};
+
+int main(){
+    Fraction f1(1,2), f2(3,4);
+    Fraction f3 = f1 + f2;
+    f3.display();
+}
+</pre>
+
+<p>3. Class Matrix with * operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Matrix{
+public:
+    int a[2][2];
+
+    Matrix operator*(Matrix m){
+        Matrix res;
+        for(int i=0;i&lt;2;i++)
+            for(int j=0;j&lt;2;j++){
+                res.a[i][j]=0;
+                for(int k=0;k&lt;2;k++)
+                    res.a[i][j]+=a[i][k]*m.a[k][j];
+            }
+        return res;
+    }
+
+    void input(){
+        for(int i=0;i&lt;2;i++)
+            for(int j=0;j&lt;2;j++)
+                cin >> a[i][j];
+    }
+
+    void display(){
+        for(int i=0;i&lt;2;i++){
+            for(int j=0;j&lt;2;j++)
+                cout &lt;&lt; a[i][j] &lt;&lt; " ";
+            cout &lt;&lt; endl;
+        }
+    }
+};
+
+int main(){
+    Matrix m1,m2,m3;
+    m1.input();
+    m2.input();
+    m3 = m1 * m2;
+    m3.display();
+}
+</pre>
+
+<p>4. Class String with + operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Str{
+public:
+    string s;
+    Str(string x){s=x;}
+
+    Str operator+(Str other){
+        return Str(s + other.s);
+    }
+
+    void display(){
+        cout &lt;&lt; s;
+    }
+};
+
+int main(){
+    Str s1("Hello "), s2("World");
+    Str s3 = s1 + s2;
+    s3.display();
+}
+</pre>
+
+<p>5. Class Date with &lt; operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Date{
+public:
+    int d,m,y;
+    Date(int d,int m,int y){this-&gt;d=d; this-&gt;m=m; this-&gt;y=y;}
+
+    bool operator&lt;(Date obj){
+        if(y != obj.y) return y &lt; obj.y;
+        if(m != obj.m) return m &lt; obj.m;
+        return d &lt; obj.d;
+    }
+};
+
+int main(){
+    Date d1(1,1,2020), d2(2,1,2021);
+    if(d1 &lt; d2) cout &lt;&lt; "Earlier";
+    else cout &lt;&lt; "Later";
+}
+</pre>
+
+<p>6. Class Money with + operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Money{
+public:
+    int amount;
+    Money(int a){amount=a;}
+
+    Money operator+(Money m){
+        return Money(amount + m.amount);
+    }
+
+    void display(){
+        cout &lt;&lt; amount;
+    }
+};
+
+int main(){
+    Money m1(100), m2(200);
+    Money m3 = m1 + m2;
+    m3.display();
+}
+</pre>
+
+<p>7. Class Rectangle with == operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Rectangle{
+public:
+    int l,b;
+    Rectangle(int l,int b){this-&gt;l=l; this-&gt;b=b;}
+
+    bool operator==(Rectangle r){
+        return (l==r.l && b==r.b);
+    }
+};
+
+int main(){
+    Rectangle r1(4,5), r2(4,5);
+    if(r1 == r2) cout &lt;&lt; "Equal";
+    else cout &lt;&lt; "Not Equal";
+}
+</pre>
+
+<p>8. Class Time with &lt;&lt; operator</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Time{
+public:
+    int h,m;
+    Time(int h,int m){this-&gt;h=h; this-&gt;m=m;}
+
+    friend ostream& operator&lt;&lt;(ostream &out, Time t){
+        out &lt;&lt; t.h &lt;&lt; ":" &lt;&lt; t.m;
+        return out;
+    }
+};
+
+int main(){
+    Time t(10,30);
+    cout &lt;&lt; t;
+}
+</pre>
+
+</details>
+
+<hr>
+
+<details>
+<summary><b>10. Function</b></summary>
+<p>1. Find smallest among three numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int smallest(int a,int b,int c){
+    if(a&lt;b && a&lt;c) return a;
+    else if(b&lt;c) return b;
+    else return c;
+}
+
+int main(){
+    int a,b,c;
+    cin >> a >> b >> c;
+    cout &lt;&lt; smallest(a,b,c);
+}
+</pre>
+
+<p>2. Compute average of three numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+float avg(int a,int b,int c){
+    return (a+b+c)/3.0;
+}
+
+int main(){
+    int a,b,c;
+    cin >> a >> b >> c;
+    cout &lt;&lt; avg(a,b,c);
+}
+</pre>
+
+<p>3. Display middle character of a string</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+void middle(string s){
+    int n = s.length();
+    if(n%2==0)
+        cout &lt;&lt; s[n/2-1] &lt;&lt; s[n/2];
+    else
+        cout &lt;&lt; s[n/2];
+}
+
+int main(){
+    string s;
+    cin >> s;
+    middle(s);
+}
+</pre>
+
+<p>4. Find twin prime numbers less than 100</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+bool prime(int n){
+    if(n&lt;2) return false;
+    for(int i=2;i*i&lt;=n;i++)
+        if(n%i==0) return false;
+    return true;
+}
+
+int main(){
+    for(int i=2;i&lt;100;i++){
+        if(prime(i) && prime(i+2))
+            cout &lt;&lt; i &lt;&lt; " " &lt;&lt; i+2 &lt;&lt; endl;
+    }
+}
+</pre>
+
+<p>5. Count number of digits equal to 2</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int count2(int n){
+    int c=0;
+    while(n&gt;0){
+        if(n%10==2) c++;
+        n/=10;
+    }
+    return c;
+}
+
+int main(){
+    int n;
+    cin >> n;
+    cout &lt;&lt; count2(n);
+}
+</pre>
+
+<p>6. Check consecutive numbers</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+bool consecutive(int a,int b,int c){
+    if(b==a+1 && c==b+1) return true;
+    if(b==a-1 && c==b-1) return true;
+    return false;
+}
+
+int main(){
+    int a,b,c;
+    cin >> a >> b >> c;
+    if(consecutive(a,b,c)) cout &lt;&lt; "True";
+    else cout &lt;&lt; "False";
+}
+</pre>
+
+<p>7. Check all characters are vowels</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+bool allVowels(string s){
+    for(char c:s){
+        if(!(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||
+             c=='A'||c=='E'||c=='I'||c=='O'||c=='U'))
+            return false;
+    }
+    return true;
+}
+
+int main(){
+    string s;
+    cin >> s;
+    if(allVowels(s)) cout &lt;&lt; "True";
+    else cout &lt;&lt; "False";
+}
+</pre>
+
+</details>
+
+<hr>
+
+<details>
+<summary><b>11. Virtual Functions</b></summary>
+<p>1. Abstract Animal with Lion and Tiger (sound)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal{
+public:
+    virtual void sound()=0;
+};
+
+class Lion: public Animal{
+public:
+    void sound(){cout&lt;&lt;"Lion Roars";}
+};
+
+class Tiger: public Animal{
+public:
+    void sound(){cout&lt;&lt;"Tiger Growls";}
+};
+
+int main(){
+    Lion l; Tiger t;
+    l.sound(); cout&lt;&lt;endl;
+    t.sound();
+}
+</pre>
+
+<p>2. Same as above (Animal sound)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal{
+public:
+    virtual void sound()=0;
+};
+
+class Lion: public Animal{
+public:
+    void sound(){cout&lt;&lt;"Roar";}
+};
+
+class Tiger: public Animal{
+public:
+    void sound(){cout&lt;&lt;"Growl";}
+};
+
+int main(){
+    Animal *a;
+    Lion l; Tiger t;
+    a=&l; a-&gt;sound();
+    a=&t; a-&gt;sound();
+}
+</pre>
+
+<p>3. Shape with Circle and Triangle</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+class Shape{
+public:
+    virtual void calculateArea()=0;
+    virtual void calculatePerimeter()=0;
+};
+
+class Circle: public Shape{
+    float r;
+public:
+    Circle(float r){this-&gt;r=r;}
+    void calculateArea(){cout&lt;&lt;3.14*r*r;}
+    void calculatePerimeter(){cout&lt;&lt;2*3.14*r;}
+};
+
+class Triangle: public Shape{
+    float a,b,c;
+public:
+    Triangle(float a,float b,float c){this-&gt;a=a;this-&gt;b=b;this-&gt;c=c;}
+    void calculateArea(){
+        float s=(a+b+c)/2;
+        cout&lt;&lt;sqrt(s*(s-a)*(s-b)*(s-c));
+    }
+    void calculatePerimeter(){cout&lt;&lt;a+b+c;}
+};
+
+int main(){
+    Circle c(5); Triangle t(3,4,5);
+    c.calculateArea(); cout&lt;&lt;endl;
+    t.calculateArea();
+}
+</pre>
+
+<p>4. BankAccount with Savings and Current</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class BankAccount{
+public:
+    virtual void deposit(int)=0;
+    virtual void withdraw(int)=0;
+};
+
+class Savings: public BankAccount{
+    int bal=0;
+public:
+    void deposit(int x){bal+=x;}
+    void withdraw(int x){bal-=x;}
+    void show(){cout&lt;&lt;bal;}
+};
+
+int main(){
+    Savings s;
+    s.deposit(1000);
+    s.withdraw(200);
+    s.show();
+}
+</pre>
+
+<p>5. Animal eat and sleep</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal{
+public:
+    virtual void eat()=0;
+    virtual void sleep()=0;
+};
+
+class Lion: public Animal{
+public:
+    void eat(){cout&lt;&lt;"Lion eats meat";}
+    void sleep(){cout&lt;&lt;"Lion sleeps";}
+};
+
+int main(){
+    Lion l;
+    l.eat(); cout&lt;&lt;endl;
+    l.sleep();
+}
+</pre>
+
+<p>6. Employee Manager and Programmer</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Employee{
+public:
+    virtual void calculateSalary()=0;
+};
+
+class Manager: public Employee{
+public:
+    void calculateSalary(){cout&lt;&lt;"Manager Salary";}
+};
+
+class Programmer: public Employee{
+public:
+    void calculateSalary(){cout&lt;&lt;"Programmer Salary";}
+};
+
+int main(){
+    Manager m; Programmer p;
+    m.calculateSalary(); cout&lt;&lt;endl;
+    p.calculateSalary();
+}
+</pre>
+
+<p>7. Shape3D Sphere and Cube</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape3D{
+public:
+    virtual void volume()=0;
+};
+
+class Sphere: public Shape3D{
+public:
+    void volume(){cout&lt;&lt;"Sphere Volume";}
+};
+
+int main(){
+    Sphere s;
+    s.volume();
+}
+</pre>
+
+<p>8. Vehicle Car and Motorcycle</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Vehicle{
+public:
+    virtual void start()=0;
+    virtual void stop()=0;
+};
+
+class Car: public Vehicle{
+public:
+    void start(){cout&lt;&lt;"Car Start";}
+    void stop(){cout&lt;&lt;"Car Stop";}
+};
+
+int main(){
+    Car c;
+    c.start(); cout&lt;&lt;endl;
+    c.stop();
+}
+</pre>
+
+<p>9. Person Athlete and LazyPerson</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Person{
+public:
+    virtual void eat()=0;
+};
+
+class Athlete: public Person{
+public:
+    void eat(){cout&lt;&lt;"Healthy Food";}
+};
+
+int main(){
+    Athlete a;
+    a.eat();
+}
+</pre>
+
+<p>10. Instrument Glockenspiel and Violin</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Instrument{
+public:
+    virtual void play()=0;
+};
+
+class Violin: public Instrument{
+public:
+    void play(){cout&lt;&lt;"Violin Playing";}
+};
+
+int main(){
+    Violin v;
+    v.play();
+}
+</pre>
+
+<p>11. Shape2D Rectangle and Circle</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape2D{
+public:
+    virtual void draw()=0;
+};
+
+class Rectangle: public Shape2D{
+public:
+    void draw(){cout&lt;&lt;"Draw Rectangle";}
+};
+
+int main(){
+    Rectangle r;
+    r.draw();
+}
+</pre>
+
+<p>12. GeometricShape Triangle and Square</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape{
+public:
+    virtual void area()=0;
+};
+
+class Square: public Shape{
+public:
+    void area(){cout&lt;&lt;"Square Area";}
+};
+
+int main(){
+    Square s;
+    s.area();
+}
+</pre>
+
+<p>13. Bird Eagle and Hawk</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Bird{
+public:
+    virtual void fly()=0;
+};
+
+class Eagle: public Bird{
+public:
+    void fly(){cout&lt;&lt;"Eagle Flying";}
+};
+
+int main(){
+    Eagle e;
+    e.fly();
+}
+</pre>
+</details>
+
+<hr>
+
+<footer>
+<p>All these questions will help you learn the language without any doubts remaining </p>
+</footer>
+
+ 
